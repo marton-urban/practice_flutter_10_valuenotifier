@@ -34,13 +34,13 @@ class MyApp extends StatelessWidget {
                 scaffoldBackgroundColor: backgroundColor.value,
                 primaryColor: Colors.white,
               ),
-              home: MainPage(backgroundColor: backgroundColor),
+              home: MainPage(backgroundColor),
             ));
   }
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({super.key, required this.backgroundColor});
+  const MainPage(this.backgroundColor, {super.key});
 
   final ValueNotifier<Color> backgroundColor;
 
