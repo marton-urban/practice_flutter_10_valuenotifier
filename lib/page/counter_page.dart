@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '/widget/button_widget.dart';
 
 class CounterPage extends StatefulWidget {
-  const CounterPage(this.counter, {super.key});
+  const CounterPage(this.counterNotifier, {super.key});
 
-  final ValueNotifier<int> counter;
+  final ValueNotifier<int> counterNotifier;
 
   @override
   State<CounterPage> createState() => _CounterPageState();
@@ -67,14 +67,14 @@ class _CounterPageState extends State<CounterPage> {
       );
 
   void increment() {
-    widget.counter.value++;
+    widget.counterNotifier.value++;
 
     Navigator.pop(context);
   }
 
   void setStringCounter(String value) {
     final newCounter = int.tryParse(value);
-    widget.counter.value = newCounter!;
+    widget.counterNotifier.value = newCounter!;
 
     Navigator.pop(context);
   }

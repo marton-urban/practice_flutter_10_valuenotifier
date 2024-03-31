@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '/main.dart';
 
 class ColorPage extends StatelessWidget {
-  const ColorPage(this.backgroundColor, {super.key});
+  const ColorPage(this.bgColorNotifier, {super.key});
 
-  final ValueNotifier<Color> backgroundColor;
+  final ValueNotifier<Color> bgColorNotifier;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -37,7 +37,7 @@ class ColorPage extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(backgroundColor: color, elevation: 0),
           onPressed: () {
-            backgroundColor.value = color;
+            bgColorNotifier.value = color;
             Navigator.pop(context);
           },
           child: Container(height: 100),
