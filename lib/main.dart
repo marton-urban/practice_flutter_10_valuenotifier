@@ -2,6 +2,8 @@
 // because it's not like a list.
 // instead of  home: MainPage(bgColorNotifier), we added it to child parameter,
 // so MainPage doesn't actually get rebuilt every time the bgColor changes
+// maybe this and practice_flutter_10_inheritedmodel are the best of all versions,
+// because only the changed widget is rebuilt
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
