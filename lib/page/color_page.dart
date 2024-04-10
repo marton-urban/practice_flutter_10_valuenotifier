@@ -21,26 +21,36 @@ class ColorPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  buildColorButton(context, Colors.red),
-                  buildColorButton(context, Colors.orange),
-                  buildColorButton(context, Colors.greenAccent),
-                  buildColorButton(context, Colors.indigo),
+                  MyColorButton(bgColorNotifier, Colors.red),
+                  MyColorButton(bgColorNotifier, Colors.orange),
+                  MyColorButton(bgColorNotifier, Colors.greenAccent),
+                  MyColorButton(bgColorNotifier, Colors.indigo),
                 ],
               ),
             ),
           ),
         ),
       );
+}
 
-  Widget buildColorButton(BuildContext context, Color color) => Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: color, elevation: 0),
-          onPressed: () {
-            bgColorNotifier.value = color;
-            Navigator.pop(context);
-          },
-          child: Container(height: 100),
-        ),
-      );
+class MyColorButton extends StatelessWidget {
+  final Color color;
+  final ValueNotifier<Color> bgColorNotifier;
+
+  const MyColorButton(this.bgColorNotifier, this.color, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(backgroundColor: color, elevation: 0),
+        onPressed: () {
+          bgColorNotifier.value = color;
+          Navigator.pop(context);
+        },
+        child: Container(height: 100),
+      ),
+    );
+  }
 }
